@@ -1,0 +1,57 @@
+# Gradle files
+.gradle
+gradle.properties
+**/build/
+
+# Keep only proguard mapping.txt files, for flavor devel and prod, inside build directory
+!app/build/
+app/build/*
+!app/build/outputs/
+app/build/outputs/*
+!app/build/outputs/mapping/
+app/build/outputs/mapping/*
+
+!app/build/outputs/mapping/devel/
+app/build/outputs/mapping/devel/*
+!app/build/outputs/mapping/devel/release/
+app/build/outputs/mapping/devel/release/*
+!app/build/outputs/mapping/devel/release/mapping.txt
+
+!app/build/outputs/mapping/rc/
+app/build/outputs/mapping/rc/*
+!app/build/outputs/mapping/rc/release/
+app/build/outputs/mapping/rc/release/*
+!app/build/outputs/mapping/rc/release/mapping.txt
+
+!app/build/outputs/mapping/prod/
+app/build/outputs/mapping/prod/*
+!app/build/outputs/mapping/prod/release/
+app/build/outputs/mapping/prod/release/*
+!app/build/outputs/mapping/prod/release/mapping.txt
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Max OS X clutter
+.DS_Store
+
+# Windows clutter
+Thumbs.db
+desktop.ini
+
+# Other strange files, eg. Vim's backup files ;)
+*~
+
+# Idea files
+.idea/
+*.iml
+
+#built application files
+*.apk
+*.ap_
+
+#chrashlytics
+com_crashlytics_export_strings.xml
+
+# All private and secure files that should not be committed to the repository
+local/
