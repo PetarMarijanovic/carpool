@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
+apply from: "$project.rootDir/config/static_analysis.gradle"
 
 android {
     compileSdkVersion 25
@@ -21,6 +22,14 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        warningsAsErrors true
+        abortOnError true
+        htmlOutput file("$project.buildDir/outputs/reports/staticAnalysis/lint/lint.html")
+
+        disable 'GoogleAppIndexingWarning'
     }
 }
 

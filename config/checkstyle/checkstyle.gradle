@@ -1,0 +1,34 @@
+apply plugin: 'checkstyle'
+
+checkstyle {
+    toolVersion = '7.2'
+
+    // This excludes checkstyleMain task from the check/build/... tasks
+    sourceSets = []
+}
+
+def reportsDirectory = "$project.buildDir/outputs/reports/staticAnalysis/checkstyle"
+
+task checkstyle(type: Checkstyle) {
+
+    group 'Verification'
+    description 'Generate a Checkstyle report that contains coding standard violations.'
+
+    ignoreFailures = false
+    showViolations = true
+
+    source 'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    reports {
+        xml.enabled false // This still generates the xml???
+        xml.destination reportsDirectory + "/checkstyle.xml"
+
+        html.enabled true
+        html.destination reportsDirectory + "/checkstyle.html"
+    }
+
+    classpath = files()
+    configFile = file("$project.rootDir/config/checkstyle/checkstyle.xml")
+}

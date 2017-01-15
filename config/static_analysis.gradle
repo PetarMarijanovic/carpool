@@ -1,0 +1,14 @@
+apply from: "$project.rootDir/config/checkstyle/checkstyle.gradle"
+apply from: "$project.rootDir/config/findbugs/findbugs.gradle"
+apply from: "$project.rootDir/config/pmd/pmd.gradle"
+
+task staticAnalysis {
+
+    group 'Verification'
+    description 'Generate StaticAnalysis reports.'
+
+    dependsOn 'checkstyle'
+    dependsOn 'pmd'
+    dependsOn 'findbugs'
+    dependsOn 'lint'
+}

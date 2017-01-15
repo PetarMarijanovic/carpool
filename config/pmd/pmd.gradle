@@ -1,0 +1,34 @@
+apply plugin: 'pmd'
+
+pmd {
+    toolVersion = '5.5.2'
+
+    // This excludes pmdMain task from the check/build/... tasks
+    sourceSets = []
+}
+
+def reportsDirectory = "$project.buildDir/outputs/reports/staticAnalysis/pmd"
+
+task pmd(type: Pmd) {
+
+    group 'Verification'
+    description 'Generate a PMD report that contains common programming flaws like unused variables, empty catch blocks, unnecessary object creation, copy-paste code and so forth.'
+
+    ruleSetFiles = files("$project.rootDir/config/pmd/ruleset.xml")
+    ignoreFailures = false
+
+    source 'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    reports {
+        xml {
+            enabled false
+            destination reportsDirectory + "/pmd.xml"
+        }
+        html {
+            enabled true
+            destination reportsDirectory + "/pmd.html"
+        }
+    }
+}
