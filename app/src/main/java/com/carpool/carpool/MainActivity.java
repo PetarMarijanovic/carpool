@@ -21,7 +21,6 @@ import timber.log.Timber;
 public class MainActivity extends AppCompatActivity {
 
   // TODO: petar 12/01/2017 Robolectric
-  // TODO: petar 12/01/2017 AutoValue
   // TODO: petar 12/01/2017 Dagger
   // TODO: petar 12/01/2017 Flow
   // TODO: petar 12/01/2017 MVP
@@ -44,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
   @OnClick(R.id.text)
   void changeText() {
-    text.setText(DateTime.now().toString("hh:mm:ss"));
+
+    text.setText(Event.create(DateTime.now(), "name").toString());
 
     List<String> logs = new ArrayList<>();
     logs.add("log1");
