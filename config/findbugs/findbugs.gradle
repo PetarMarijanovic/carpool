@@ -7,7 +7,7 @@ findbugs {
     sourceSets = []
 }
 
-def reportsDirectory = "$project.buildDir/outputs/reports/staticAnalysis/findbugs"
+def reportsDirectory = "$project.buildDir/outputs/staticAnalysis/findbugs"
 
 task findbugs(type: FindBugs) {
 

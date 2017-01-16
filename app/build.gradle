@@ -25,9 +25,10 @@ android {
     }
 
     lintOptions {
+        xmlReport false
         warningsAsErrors true
         abortOnError true
-        htmlOutput file("$project.buildDir/outputs/reports/staticAnalysis/lint/lint.html")
+        htmlOutput file("$project.buildDir/outputs/staticAnalysis/lint/lint.html")
 
         disable 'GoogleAppIndexingWarning'
     }

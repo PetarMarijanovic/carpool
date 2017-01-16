@@ -1,0 +1,19 @@
+machine:
+  java:
+    version: openjdk8
+
+dependencies:
+  pre:
+    - echo y | android update sdk --no-ui --all --filter "android-25"
+    - echo y | android update sdk --no-ui --all --filter "build-tools-25.0.2"
+
+test:
+  override:
+    - ./gradlew clean
+    - ./gradlew assembleDebug
+    - ./gradlew staticAnalysis
+    - ./gradlew test
+
+general:
+  artifacts:
+    - ~/carpool/app/build/outputs/staticAnalysis/

@@ -7,7 +7,7 @@ checkstyle {
     sourceSets = []
 }
 
-def reportsDirectory = "$project.buildDir/outputs/reports/staticAnalysis/checkstyle"
+def reportsDirectory = "$project.buildDir/outputs/staticAnalysis/checkstyle"
 
 task checkstyle(type: Checkstyle) {
 

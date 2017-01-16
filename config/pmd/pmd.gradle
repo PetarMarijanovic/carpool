@@ -7,7 +7,7 @@ pmd {
     sourceSets = []
 }
 
-def reportsDirectory = "$project.buildDir/outputs/reports/staticAnalysis/pmd"
+def reportsDirectory = "$project.buildDir/outputs/staticAnalysis/pmd"
 
 task pmd(type: Pmd) {
 
