@@ -6,6 +6,7 @@ dependencies:
   pre:
     - echo y | android update sdk --no-ui --all --filter "android-25"
     - echo y | android update sdk --no-ui --all --filter "build-tools-25.0.2"
+    - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository" # Support Repository
 
 test:
   override:
@@ -17,3 +18,8 @@ test:
 general:
   artifacts:
     - ~/carpool/app/build/outputs/staticAnalysis/
+
+
+
+
+# TODO Cache something somewhere???

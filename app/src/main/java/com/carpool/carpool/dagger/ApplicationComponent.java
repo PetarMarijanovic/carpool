@@ -1,7 +1,6 @@
 package com.carpool.carpool.dagger;
 
 import com.carpool.carpool.CarPoolApplication;
-import com.carpool.carpool.MainActivity;
 
 import javax.inject.Singleton;
 
@@ -13,6 +12,4 @@ import dagger.Component;
 public interface ApplicationComponent {
 
   void inject(CarPoolApplication target);
-
-  void inject(MainActivity target);
 }
