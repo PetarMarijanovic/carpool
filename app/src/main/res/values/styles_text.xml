@@ -1,0 +1,155 @@
+<resources>
+
+    <!-- Styles created from here https://material.io/guidelines/style/typography.html -->
+
+    <!-- ### WHITE ### -->
+
+    <style name="Text_Display4.White" parent="Text_Display4">
+        <item name="android:textColor">@color/textLight_Secondary</item>
+    </style>
+
+    <style name="Text_Display3.White" parent="Text_Display3">
+        <item name="android:textColor">@color/textLight_Secondary</item>
+    </style>
+
+    <style name="Text_Display2.White" parent="Text_Display2">
+        <item name="android:textColor">@color/textLight_Secondary</item>
+    </style>
+
+    <style name="Text_Display1.White" parent="Text_Display1">
+        <item name="android:textColor">@color/textLight_Secondary</item>
+    </style>
+
+    <style name="Text_Headline.White" parent="Text_Headline">
+        <item name="android:textColor">@color/textLight_Primary</item>
+    </style>
+
+    <style name="Text_Title.White" parent="Text_Title">
+        <item name="android:textColor">@color/textLight_Primary</item>
+    </style>
+
+    <style name="Text_SubHeading.White" parent="Text_SubHeading">
+        <item name="android:textColor">@color/textLight_Primary</item>
+    </style>
+
+    <style name="Text_Body2.White" parent="Text_Body2">
+        <item name="android:textColor">@color/textLight_Primary</item>
+    </style>
+
+    <style name="Text_Body1.White" parent="Text_Body1">
+        <item name="android:textColor">@color/textLight_Primary</item>
+    </style>
+
+    <style name="Text_Caption.White" parent="Text_Caption">
+        <item name="android:textColor">@color/textLight_Secondary</item>
+    </style>
+
+    <style name="Text_Button.White" parent="Text_Button">
+        <item name="android:textColor">@color/textLight_Primary</item>
+    </style>
+
+    <!-- ### BLACK ### -->
+
+    <style name="Text_Display4.Black" parent="Text_Display4">
+        <item name="android:textColor">@color/textDark_Secondary</item>
+    </style>
+
+    <style name="Text_Display3.Black" parent="Text_Display3">
+        <item name="android:textColor">@color/textDark_Secondary</item>
+    </style>
+
+    <style name="Text_Display2.Black" parent="Text_Display2">
+        <item name="android:textColor">@color/textDark_Secondary</item>
+    </style>
+
+    <style name="Text_Display1.Black" parent="Text_Display1">
+        <item name="android:textColor">@color/textDark_Secondary</item>
+    </style>
+
+    <style name="Text_Headline.Black" parent="Text_Headline">
+        <item name="android:textColor">@color/textDark_Primary</item>
+    </style>
+
+    <style name="Text_Title.Black" parent="Text_Title">
+        <item name="android:textColor">@color/textDark_Primary</item>
+    </style>
+
+    <style name="Text_SubHeading.Black" parent="Text_SubHeading">
+        <item name="android:textColor">@color/textDark_Primary</item>
+    </style>
+
+    <style name="Text_Body2.Black" parent="Text_Body2">
+        <item name="android:textColor">@color/textDark_Primary</item>
+    </style>
+
+    <style name="Text_Body1.Black" parent="Text_Body1">
+        <item name="android:textColor">@color/textDark_Primary</item>
+    </style>
+
+    <style name="Text_Caption.Black" parent="Text_Caption">
+        <item name="android:textColor">@color/textDark_Secondary</item>
+    </style>
+
+    <style name="Text_Button.Black" parent="Text_Button">
+        <item name="android:textColor">@color/textDark_Primary</item>
+    </style>
+
+    <!-- ### BASE ### -->
+
+    <style name="Text_Display4">
+        <item name="android:textSize">112sp</item>
+        <item name="android:fontFamily">sans-serif-light</item> <!-- roboto light -->
+    </style>
+
+    <style name="Text_Display3">
+        <item name="android:textSize">56sp</item>
+        <item name="android:fontFamily">sans-serif</item> <!-- roboto regular -->
+    </style>
+
+    <style name="Text_Display2">
+        <item name="android:textSize">45sp</item>
+        <item name="android:fontFamily">sans-serif</item> <!-- roboto regular -->
+    </style>
+
+    <style name="Text_Display1">
+        <item name="android:textSize">34sp</item>
+        <item name="android:fontFamily">sans-serif</item> <!-- roboto regular -->
+    </style>
+
+    <style name="Text_Headline">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">sans-serif</item> <!-- roboto regular -->
+    </style>
+
+    <style name="Text_Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item> <!-- roboto medium(android 5.0) -->
+    </style>
+
+    <style name="Text_SubHeading">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item> <!-- roboto regular -->
+    </style>
+
+    <style name="Text_Body2">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item> <!-- roboto medium(android 5.0) -->
+    </style>
+
+    <style name="Text_Body1">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item> <!-- roboto regular -->
+    </style>
+
+    <style name="Text_Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item> <!-- roboto regular -->
+    </style>
+
+    <style name="Text_Button">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif-medium</item> <!-- roboto medium(android 5.0) -->
+    </style>
+
+</resources>

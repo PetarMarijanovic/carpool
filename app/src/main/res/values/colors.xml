@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- Background -->
+    <color name="backgroundDark_StatusBar" tools:ignore="UnusedResources">#000000</color>
+    <color name="backgroundDark_AppBar" tools:ignore="UnusedResources">#212121</color>
+    <color name="backgroundDark_Background" tools:ignore="UnusedResources">#303030</color>
+    <color name="backgroundDark_Card_Dialog" tools:ignore="UnusedResources">#424242</color>
+
+    <color name="backgroundLight_StatusBar" tools:ignore="UnusedResources">#E0E0E0</color>
+    <color name="backgroundLight_AppBar" tools:ignore="UnusedResources">#F5F5F5</color>
+    <color name="backgroundLight_Background" tools:ignore="UnusedResources">#FAFAFA</color>
+    <color name="backgroundLight_Card_Dialog" tools:ignore="UnusedResources">#FFFFFF</color>
+
+    <!-- Texts -->
+    <color name="textDark_Primary" tools:ignore="UnusedResources">#DE000000</color>
+    <color name="textDark_Secondary" tools:ignore="UnusedResources">#8A000000</color>
+    <color name="textDark_Disabled_Hint_Icon" tools:ignore="UnusedResources">#61000000</color>
+    <color name="textDark_Divider" tools:ignore="UnusedResources">#1F000000</color>
+
+    <color name="textLight_Primary" tools:ignore="UnusedResources">#FFFFFFFF</color>
+    <color name="textLight_Secondary" tools:ignore="UnusedResources">#B3FFFFFF</color>
+    <color name="textLight_Disabled_Hint_Icon" tools:ignore="UnusedResources">#80FFFFFF</color>
+    <color name="textLight_Divider" tools:ignore="UnusedResources">#1FFFFFFF</color>
+
 </resources>
