@@ -17,6 +17,9 @@ public class LogInView extends LinearLayout {
   @BindView(R.id.email)
   EditText email;
 
+  @BindView(R.id.password)
+  EditText password;
+
   @BindView(R.id.log_in)
   Button logIn;
 
