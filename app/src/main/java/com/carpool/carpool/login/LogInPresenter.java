@@ -6,6 +6,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import android.content.Context;
+import android.content.Intent;
+
+import com.carpool.carpool.GPS_Service;
+import com.carpool.carpool.dagger.ActivityContext;
 import com.carpool.carpool.mvp.MvpPresenter;
 import com.jakewharton.rxbinding.view.RxView;
 
@@ -18,17 +23,20 @@ import timber.log.Timber;
 /** Created by petar on 20/02/2017. */
 public class LogInPresenter extends MvpPresenter<LogInView> {
 
+  private final Context context;
   private final DatabaseReference testRef;
   private final CompositeSubscription subscription = new CompositeSubscription();
 
   @Inject
-  public LogInPresenter() {
+  public LogInPresenter(@ActivityContext Context context) {
+    this.context = context;
     testRef = FirebaseDatabase.getInstance().getReference("test");
   }
 
   @Override
   public void onLoad() {
     subscription.add(observeLogInClicks());
+    subscription.add(observeLongLogInClicks());
 
     testRef.addValueEventListener(
         new ValueEventListener() {
@@ -36,12 +44,12 @@ public class LogInPresenter extends MvpPresenter<LogInView> {
           public void onDataChange(DataSnapshot dataSnapshot) {
             String value = dataSnapshot.getValue(String.class);
             if (value == null) value = "null";
-            getView().password.setText(value);
+            getView().email.setText(value);
           }
 
           @Override
           public void onCancelled(DatabaseError error) {
-            getView().password.setText(error.toException().getMessage());
+            getView().email.setText(error.toException().getMessage());
           }
         });
   }
@@ -53,8 +61,19 @@ public class LogInPresenter extends MvpPresenter<LogInView> {
 
   private Subscription observeLogInClicks() {
     return RxView.clicks(getView().logIn)
-        .subscribe(
-            i -> testRef.setValue(getView().email.getText().toString()),
-            e -> Timber.e(e, "Error while observing logInClicks"));
+        .subscribe(i -> startService(), e -> Timber.e(e, "Error while observing clicks"));
+  }
+
+  private Subscription observeLongLogInClicks() {
+    return RxView.longClicks(getView().logIn)
+        .subscribe(i -> stopService(), e -> Timber.e(e, "Error while observing long clicks"));
+  }
+
+  private void startService() {
+    context.startService(new Intent(context, GPS_Service.class));
+  }
+
+  private void stopService() {
+    context.stopService(new Intent(context, GPS_Service.class));
   }
 }
