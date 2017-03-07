@@ -4,8 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.carpool.carpool.dagger.ActivityModule;
-import com.carpool.carpool.login.DaggerLogInDagger_Component;
-import com.carpool.carpool.login.LogInDagger.Component;
+import com.carpool.carpool.map.DaggerMapDagger_Component;
+import com.carpool.carpool.map.MapDagger.Component;
+import com.carpool.carpool.map.MapView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,8 +15,11 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
 
     Component component =
-        DaggerLogInDagger_Component.builder().activityModule(new ActivityModule(this)).build();
+        DaggerMapDagger_Component.builder().activityModule(new ActivityModule(this)).build();
 
-    setContentView(component.mvp().view());
+    MapView view = component.mvp().view();
+    // TODO: petar 07/03/2017 This is because of shit
+    component.inject(view);
+    setContentView(view);
   }
 }

@@ -1,6 +1,7 @@
 package com.carpool.carpool.dagger;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 
 import javax.inject.Singleton;
@@ -23,5 +24,11 @@ public class ActivityModule {
   @ActivityContext
   public Context context() {
     return activity;
+  }
+
+  @Provides
+  @Singleton
+  public FragmentManager fragmentManager() {
+    return activity.getFragmentManager();
   }
 }

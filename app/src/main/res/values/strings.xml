@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">CarPool</string>
-    <string name="log_in_log_in_button">Log In</string>
-    <string name="log_in_password_hint">Password</string>
-    <string name="log_in_email_hint">Email</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+
+    <string name="notification_title">CarPool</string>
+    <string name="notification_text">Broadcasting location.</string>
 </resources>
