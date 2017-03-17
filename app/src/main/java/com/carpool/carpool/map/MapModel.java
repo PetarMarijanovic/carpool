@@ -7,7 +7,7 @@ import com.carpool.carpool.GPS_Service;
 import com.carpool.carpool.model.Location;
 import com.carpool.carpool.repository.LocationRepository;
 
-import rx.Observable;
+import io.reactivex.Observable;
 
 /** Created by petar on 07/03/2017. */
 public class MapModel {

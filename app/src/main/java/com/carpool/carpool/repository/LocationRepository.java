@@ -9,8 +9,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.carpool.carpool.FirebaseMapper;
 import com.carpool.carpool.model.Location;
 
-import rx.Observable;
-import rx.subjects.BehaviorSubject;
+import io.reactivex.Observable;
+import io.reactivex.subjects.BehaviorSubject;
 import timber.log.Timber;
 
 /** Created by petar on 24/02/2017. */
@@ -39,7 +39,8 @@ public class LocationRepository {
   }
 
   public Observable<Location> location() {
-    return subject.asObservable();
+    // TODO: petar 17/03/2017 asObservable?
+    return subject;
   }
 
   public void save(Location location) {

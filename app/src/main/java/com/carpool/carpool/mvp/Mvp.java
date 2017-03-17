@@ -11,6 +11,8 @@ public abstract class Mvp<P extends MvpPresenter<V>, V extends View> {
 
   public static <P extends MvpPresenter<V>, V extends View> Mvp<P, V> create(P presenter, V view) {
 
+    // TODO: petar 17/03/2017 RxView
+
     view.addOnAttachStateChangeListener(
         new View.OnAttachStateChangeListener() {
           @Override
