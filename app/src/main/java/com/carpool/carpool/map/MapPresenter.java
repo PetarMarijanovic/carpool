@@ -1,13 +1,16 @@
 package com.carpool.carpool.map;
 
+import com.carpool.carpool.model.Location;
 import com.carpool.carpool.mvp.MvpPresenter;
 import com.jakewharton.rxbinding2.view.RxView;
 
 import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
@@ -40,17 +43,51 @@ public class MapPresenter extends MvpPresenter<MapView> {
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(
-            location -> getView().setLocation(location),
-            e -> Timber.e(e, "Error while observing location"));
+            new Consumer<Location>() {
+              @Override
+              public void accept(@NonNull Location location) throws Exception {
+                getView().setLocation(location);
+              }
+            },
+            new Consumer<Throwable>() {
+              @Override
+              public void accept(@NonNull Throwable e) throws Exception {
+                Timber.e(e, "Error while observing location");
+              }
+            });
   }
 
   private Disposable observeLogInClicks() {
-    return RxView.clicks(getView().start)
-        .subscribe(i -> model.startService(), e -> Timber.e(e, "Error while observing clicks"));
+    return RxView.clicks(getView().start())
+        .subscribe(
+            new Consumer<Object>() {
+              @Override
+              public void accept(@NonNull Object o) throws Exception {
+                model.startService();
+              }
+            },
+            new Consumer<Throwable>() {
+              @Override
+              public void accept(@NonNull Throwable e) throws Exception {
+                Timber.e(e, "Error while observing clicks");
+              }
+            });
   }
 
   private Disposable observeLongLogInClicks() {
-    return RxView.clicks(getView().stop)
-        .subscribe(i -> model.stopService(), e -> Timber.e(e, "Error while observing long clicks"));
+    return RxView.clicks(getView().stop())
+        .subscribe(
+            new Consumer<Object>() {
+              @Override
+              public void accept(@NonNull Object o) throws Exception {
+                model.stopService();
+              }
+            },
+            new Consumer<Throwable>() {
+              @Override
+              public void accept(@NonNull Throwable e) throws Exception {
+                Timber.e(e, "Error while observing long clicks");
+              }
+            });
   }
 }

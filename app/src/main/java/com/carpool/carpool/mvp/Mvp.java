@@ -1,15 +1,21 @@
 package com.carpool.carpool.mvp;
 
-import com.google.auto.value.AutoValue;
-
 import android.support.v4.view.ViewCompat;
 import android.view.View;
 
 /** Created by petar on 20/02/2017. */
-@AutoValue
-public abstract class Mvp<P extends MvpPresenter<V>, V extends View> {
+public class Mvp<P extends MvpPresenter<V>, V extends View> {
 
-  public static <P extends MvpPresenter<V>, V extends View> Mvp<P, V> create(P presenter, V view) {
+  public P presenter;
+  public V view;
+
+  private Mvp(P presenter, V view) {
+    this.presenter = presenter;
+    this.view = view;
+  }
+
+  public static <P extends MvpPresenter<V>, V extends View> Mvp<P, V> create(
+      final P presenter, final V view) {
 
     // TODO: petar 17/03/2017 RxView
 
@@ -28,10 +34,6 @@ public abstract class Mvp<P extends MvpPresenter<V>, V extends View> {
 
     if (ViewCompat.isAttachedToWindow(view)) presenter.takeView(view);
 
-    return new AutoValue_Mvp<>(presenter, view);
+    return new Mvp(presenter, view);
   }
-
-  public abstract P presenter();
-
-  public abstract V view();
 }

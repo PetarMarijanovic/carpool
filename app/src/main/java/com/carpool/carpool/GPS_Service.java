@@ -87,7 +87,7 @@ public class GPS_Service extends Service
     if (ActivityCompat.checkSelfPermission(this, permission.ACCESS_FINE_LOCATION)
         != PackageManager.PERMISSION_GRANTED) {
       // TODO: petar 24/02/2017 Ask for permission
-      Timber.d("Petarr NO PERMISSION GPS");
+      Timber.e("Petarr NO PERMISSION GPS");
       return;
     }
 
@@ -103,13 +103,12 @@ public class GPS_Service extends Service
   @Override
   public void onLocationChanged(android.location.Location location) {
     Location build =
-        Location.builder()
-            .accuracy(location.getAccuracy())
-            .latitude(location.getLatitude())
-            .longitude(location.getLongitude())
-            .speed(location.getSpeed())
-            .dateTime(new DateTime().withMillis(location.getTime()))
-            .build();
+        new Location(
+            location.getLatitude(),
+            location.getLongitude(),
+            location.getSpeed(),
+            new DateTime().withMillis(location.getTime()),
+            location.getAccuracy());
 
     locationRepository.save(build);
   }
